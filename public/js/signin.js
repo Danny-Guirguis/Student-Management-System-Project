@@ -12,13 +12,13 @@ document.getElementById("signinForm").addEventListener("submit", function(event)
             // Signed in
             const user = userCredential.user;
             const userRef = doc(db, "users", user.uid);
-
+            
             getDoc(userRef)
                 .then((docSnap) => {
                     if (docSnap.exists()) {
                         const userData = docSnap.data();
                         if (userData.role) {
-                            //localStorage.setItem('credentials', userData.role);
+                            localStorage.setItem('credentials', userData.role);
                             console.log("User role:", userData.role);
                             window.location.href = "dashboard.html";
                         } else {
