@@ -29,14 +29,15 @@ document.addEventListener("DOMContentLoaded", function() {
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            const userRef = db.collection("users").doc(user.uid);
-            userRef.get()
+            const userRef = doc(db, "users", user.uid);
+
+            getDoc(userRef)
                 .then((docSnap) => {
                     if (docSnap.exists) {
                         const userData = docSnap.data();
-                        const selectedRole = document.getElementById('userType').value;
-                        if (userData.role === selectedRole) {
+                        if (userData.role) {
                             localStorage.setItem('credentials', userData.role);
+                            console.log("User role:", userData.role);
                             window.location.href = "dashboard.html";
                         } else {
                             alert("Account type mismatch. Please select correct user type.");
