@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            const userRef = doc(db, "users", user.uid);
+            const userRef = db.collection("users").doc(user.uid); // Using namespace approach
             
-            getDoc(userRef)
+            userRef.get()
                 .then((docSnap) => {
                     if (docSnap.exists) {
                         const userData = docSnap.data();
@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
         })
         .catch((error) => {
-            alert("Sign-in failed: " + error.message);
+            console.error("Sign-in error:", error); // Log the complete error object
+            alert("Sign-in failed: " + error.message); // Keep user-friendly message
         });
   });
 });
