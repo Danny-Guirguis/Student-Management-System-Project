@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then((userCredential) => {
             const user = userCredential.user;
             const userRef = doc(db, "users", user.uid);
-
+            
             getDoc(userRef)
                 .then((docSnap) => {
                     if (docSnap.exists) {
