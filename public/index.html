@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadat Academy For Management Sciences</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/homepage.css">
+<style>
+  .hero-image {
+  background: url('assets/BuildingBackground.jpg') no-repeat center center/cover;
+
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar" id="navbar">
+    <div class="logo">SAMS</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="register.html">Sign up</a></li>
+      <li><a href="signin.html">Login</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1> Welcome to Sadat Academy for Management Sciences </h1>
+      <p>Empowering Future Leaders with Knowledge and Innovation.</p>
+    </div>
+    <div class="hero-image"></div>
+  </section>
+
+  <!-- Departments Section -->
+  <section id="departments" class="departments">
+    <h2>Our Departments</h2>
+    <div class="departments-grid">
+      <div class="department-card">
+        <h3>Computer Science</h3>
+        <p>Exploring cutting-edge technology, AI, and software development.</p>
+        <div class="majors">
+          <ul>
+            <li>📌 Computer Science Department</li>
+            <li>📌 Information Systems Department</li>
+            <li>📌 Software Engineering Department</li>
+            <li>📌 Artificial Intelligence Department</li>
+            <li>📌 Data Science Department</li>
+            <li>📌 Cybersecurity Department</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="department-card">
+        <h3>Languages and Translation</h3>
+        <p>Bridging cultures through effective communication and translation studies.</p>
+        <div class="majors">
+          <ul>
+            <li>📌 English Language Department</li>
+            <li>📌 Chinese Language Department</li>
+            <li>📌 Spanish Language Department</li>
+            <li>📌 Russian Language Department</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="department-card">
+        <h3>Management Sciences</h3>
+        <p>Developing leadership and strategic decision-making skills.</p>
+        <div class="majors">
+          <ul>
+            <li>📌 International Banking Management</li>
+            <li>📌 Business Information Systems</li>
+            <li>📌 Finance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Section -->
+  <section class="explore">
+    <h2>Explore Our Vision</h2>
+    <div class="explore-grid">
+      <div class="explore-card">
+        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Legacy & Heritage</h3>
+        <p>Sadat Academy for Management Sciences (SAMS) is a private educational institution in Egypt.
+            It was established in 1981 by the late President Mohamed Anwar El-Sadat. 
+            The academy offers undergraduate and postgraduate programs in various fields of study, 
+            including computer science, management sciences, and languages and translation. 
+            SAMS is known for its high-quality education and research facilities, 
+            as well as its commitment to developing future leaders with knowledge and innovation.</p>
+      </div>
+      <div class="explore-card">
+        <div class="icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Innovative Learning</h3>
+        <p>Our mission is to provide high-quality education and research opportunities that empower students to become future leaders in their fields.
+            We are committed to fostering a culture of innovation, creativity, and critical thinking that prepares students to meet the challenges of the 21st century.
+             Through our diverse programs and dedicated faculty, we aim to inspire students to pursue excellence and make a positive impact on society.</p>      </div>
+    </div>
+  </section>
+
+ <!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <div>
+        <i class="fas fa-phone-alt"></i>
+        <h3>Phone</h3>
+        <p>‏23787628 - 23787630 - 23581033 - 23581182‏</p>
+      </div>
+      <div>
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <p>info@sams.edu.eg</p>
+      </div>
+    </div>
+  
+    <div class="contact-icons">
+      <a href="https://www.facebook.com/sams.edu.eg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/sadatacademy" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  
+    <!-- Updated Location Section (Stretched) -->
+    <div class="contact-info2">
+      <div class="location-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Location</h3>
+        <p>
+          <a href="https://maps.app.goo.gl/p4ZNJTXM1gkn7xKT6" target="_blank">
+            Sadat Academy for Management Sciences, 1, Maadi Cornich, Maadi, Cairo Governorate, Egypt
+          </a>
+        </p>
+      </div>
+    </div>
+</section>
+
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sadat Academy for Management Sciences, All Rights Reserved</p>
+  </footer>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Scroll to top button logic
+    window.onscroll = function() { toggleScrollTopBtn() };
+
+    function toggleScrollTopBtn() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        document.getElementById("scrollTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Add scroll event to navbar for background change
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>

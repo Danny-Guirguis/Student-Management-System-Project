@@ -1,46 +1,58 @@
-import { auth, db } from './firebase-config.js';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+// Initialize Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyAKei2xBBRWWgRJ4zGtAbXjgvuY6A03JV8",
+    authDomain: "education-management-sys-1d954.firebaseapp.com",
+    projectId: "education-management-sys-1d954",
+    storageBucket: "education-management-sys-1d954.appspot.com",
+    messagingSenderId: "1029175634464",
+    appId: "1:1029175634464:web:f361c714e66b5211ddea45",
+    measurementId: "G-K8JB51P24Z"
+};
 
-document.getElementById("signinForm").addEventListener("submit", function(event) {
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+document.addEventListener("DOMContentLoaded", function() {
+  const signinForm = document.getElementById("signinForm");
+  if (!signinForm) {
+    console.error("Signin form not found");
+    return;
+  }
+
+  signinForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    signInWithEmailAndPassword(auth, email, password)
+    auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Signed in
             const user = userCredential.user;
-            const userRef = doc(db, "users", user.uid);
-
-            getDoc(userRef)
+            const userRef = db.collection("users").doc(user.uid);
+            userRef.get()
                 .then((docSnap) => {
-                    if (docSnap.exists()) {
+                    if (docSnap.exists) {
                         const userData = docSnap.data();
-                        if (userData.role) {
-                            //localStorage.setItem('credentials', userData.role);
-                            console.log("User role:", userData.role);
+                        const selectedRole = document.getElementById('userType').value;
+                        if (userData.role === selectedRole) {
+                            localStorage.setItem('credentials', userData.role);
                             window.location.href = "dashboard.html";
                         } else {
-                            console.error("Role not defined for user");
-                            // Optionally, display an error to the user
-                            // alert("Role not defined for user. Please contact support.");
+                            alert("Account type mismatch. Please select correct user type.");
+                            auth.signOut();
                         }
                     } else {
-                        console.error("User document not found");
-                        // Optionally, display an error to the user
-                        // alert("User document not found. Please register first.");
+                        alert("User not found. Please register first.");
                     }
                 })
                 .catch((error) => {
-                    console.error("Error retrieving user data:", error);
-                    alert("Error retrieving user data. Please try again.");
+                    console.error("Error:", error);
+                    alert("Error retrieving user data");
                 });
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Sign-in error:", errorCode, errorMessage);
-            alert("Sign-in failed: " + errorMessage);
+            alert("Sign-in failed: " + error.message);
         });
+  });
 });
