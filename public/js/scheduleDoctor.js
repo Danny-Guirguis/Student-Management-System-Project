@@ -1,3 +1,4 @@
+// Initialize Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyAKei2xBBRWWgRJ4zGtAbXjgvuY6A03JV8",
     authDomain: "education-management-sys-1d954.firebaseapp.com",
@@ -11,4 +12,4 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-const db = firebase.firestore();
+const db = firebase.firestore()

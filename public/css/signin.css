@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -21,40 +20,39 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #004080;
-    padding: 10px 20px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    transition: background 0.3s;
     z-index: 1000;
-}
+    font-weight: bold;
+    background: #003061;
+    transition: 0.3s;
 
+}
 .navbar .logo {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
 }
-
 .navbar ul {
     list-style: none;
     display: flex;
 }
-
 .navbar ul li {
-    margin: 0 12px;
+    margin: 0 15px;
 }
-
 .navbar ul li a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s;
+    padding: 8px 12px;
+    transition: color 0.3s, transform 0.3s;
 }
-
 .navbar ul li a:hover {
     color: #ffcc00;
+    transform: scale(1.1);
 }
 
 /* Form Container */

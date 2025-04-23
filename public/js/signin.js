@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         const userData = docSnap.data();
                         if (userData.role) {
                             localStorage.setItem('credentials', userData.role);
+                            localStorage.setItem('userLevel', userData.level); // Store user level in local storage
                             console.log("User role:", userData.role);
                             window.location.href = "dashboard.html";
                         } else {

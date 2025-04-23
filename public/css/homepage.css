@@ -7,6 +7,10 @@
     scroll-behavior: smooth;
   }
 
+  .hero-image {
+    background: url('../assets/BuildingBackground.jpg') no-repeat center center/cover;
+  }
+
   /* Body styling */
   body {
     background: #f4f6f9;
@@ -33,8 +37,9 @@
     background-color: #003061;
   }
 
-  .logo {
+  .navbar .logo {
     font-size: 25px;
+    font-weight: bold;
   }
 
   .navbar ul {
@@ -105,7 +110,7 @@
 
   .hero-image {
     width: 45%;
-    background: url('assets/BuildingBackground.jpg') no-repeat center center/cover;
+    background: url('../assets/BuildingBackground.jpg') no-repeat center center/cover;
     height: 500px;
     border-radius: 15px;
   }
@@ -134,12 +139,15 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out, max-height 0.8s ease-in-out;
     cursor: pointer;
+    overflow: hidden;
+    max-height: 100px; /* Collapsed state */
   }
 
   .department-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    max-height: 650px; /* Expanded state */
   }
 
   .department-card h3 {
@@ -154,13 +162,16 @@
   }
 
   .majors {
-    display: none;
-    padding-top: 10px;
-  }
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out, opacity 0.6s ease;
+}
 
-  .department-card:hover .majors {
-    display: block;
-  }
+.department-card:hover .majors {
+    max-height: 400px; /* Adjust as needed */
+    opacity: 1;
+}
 
   .majors ul {
     list-style: none;

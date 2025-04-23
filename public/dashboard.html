@@ -7,10 +7,29 @@
     <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
-    <script src="./js/dashboard.js"></script>
+    <script src="./js/dashboard.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+        <img src="./assets/samslogopng.png" alt="Logo">
+        </div>
+        <ul class="menu">
+            <li><a href="index.html"><i class="fas fa-home"></i><span class="menu-text">Home</span></a></li>
+            <li><a href="dashboard.html" class="active"><i class="fas fa-calendar-check"></i><span class="menu-text"> Dashboard</span></a></li>
+            <li><a href="courses.html"><i class="fas fa-book"></i><span class="menu-text">Courses</span></a></li>
+            <li><a href="schedules.html"><i class="fas fa-calendar-alt"></i><span class="menu-text">Schedule</span></a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+    
+    </div>
 </body>
 </html>

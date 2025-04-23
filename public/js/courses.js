@@ -2,7 +2,8 @@ let credential = localStorage.getItem("credentials");
 
 document.addEventListener('DOMContentLoaded', function() {
     if (credential === "student") {
-        document.body.innerHTML = `<!DOCTYPE html>
+        document.body.innerHTML = `
+        <!DOCTYPE html>
         <html lang="en">
         <head>
         <meta charset="UTF-8">
@@ -221,11 +222,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </div>
+    <script>
     
+    </script>
     </body>
     </html>
-    
-    
     `
     } 
     else if (credential === "doctor") {

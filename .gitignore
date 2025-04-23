@@ -69,6 +69,4 @@ node_modules/
 .dataconnect
 
 # files for testing the website
-test
-test.*
-public/js/test.js
+test*
